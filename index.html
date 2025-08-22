@@ -430,6 +430,88 @@
         </div>
     </div>
 
+    <section id="intervention" class="py-16 bg-amber-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="title-font text-3xl font-bold text-gray-900 mb-2">
+                <i class="fas fa-hand-holding-heart text-amber-600"></i> Proposta de Intervenção
+            </h2>
+            <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            <p class="mt-4 max-w-2xl mx-auto text-gray-700">
+                Uma solução sustentável para desafios reais da comunidade local.
+            </p>
+        </div>
+
+        <div class="flex justify-center">
+            <div class="bg-white rounded-lg shadow-custom overflow-hidden max-w-3xl card-hover">
+                <img src="img/SertC3A3o.png" alt="Imagem da proposta de intervenção" class="w-full h-auto object-cover md:h-64">
+                <div class="p-6">
+                    <h3 class="title-font text-2xl font-bold text-gray-800 mb-3">Como se pode interferir no desmatamento do sertão</h3>
+                    <p class="text-gray-700 mb-4">
+                        Tendo em vista o índice crescente de porcentagem desmatada do sertão, existem algumas alternativas de intervenção por meio do IBAMA 
+                    </p>
+                    <div class="flex justify-end">
+                        <button onclick="openInterventionModal()" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 transition duration-300">
+                            Ver Proposta Completa
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="intervention-modal" class="fixed inset-0 hidden modal-bg flex items-center justify-center z-50 p-4" onclick="closeInterventionModal()">
+    <div class="bg-white rounded-lg p-6 shadow-xl max-w-4xl w-full mx-auto relative" onclick="event.stopPropagation()">
+        <button onclick="closeInterventionModal()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 transition-colors duration-200">
+            <i class="fas fa-times-circle text-2xl"></i>
+        </button>
+        <h3 class="title-font text-2xl font-bold text-gray-800 text-center mb-4">Como se pode interferir no desmatamento do sertão</h3>
+        <div class="overflow-y-auto max-h-[70vh] text-gray-700 leading-relaxed p-4 rounded-lg bg-amber-50">
+            <h4 class="title-font text-xl font-bold text-gray-800 mb-2">1. O Problema Identificado</h4>
+            <p class="mb-4">
+                O sertão vem apresentando um índice crescente de desmatamento, impulsionado tanto por práticas empresariais irregulares quanto pela instalação de fontes de energia que demandam grandes áreas de vegetação. Esse processo causa degradação ambiental, perda de biodiversidade, alterações climáticas locais e comprometimento de recursos naturais essenciais, como a qualidade do ar e da água.
+            </p>
+
+            <h4 class="title-font text-xl font-bold text-gray-800 mb-2">2. A Solução Proposta</h4>
+            <p class="mb-4">
+                Tendo em vista esse cenário, algumas alternativas podem ser adotadas por meio do IBAMA – órgão central no que diz respeito ao meio ambiente, fiscalização e aplicação de normas – para monitorar e responsabilizar empresas que estão desmatando além do permitido.
+
+                No caso do desmatamento associado à instalação de fontes de energia, é possível a criação de projetos de lei que substituam a instalação de torres eólicas em áreas de risco ambiental por alternativas menos prejudiciais, aproveitando, por exemplo, as extensas margens do Rio São Francisco para a construção de usinas hidrelétricas. Também se pode instalar filtros de ar em usinas termelétricas, contribuindo para a melhoria da qualidade atmosférica.
+
+                Outra medida viável é a elaboração de um projeto de lei que obrigue o reflorestamento das áreas desmatadas por empresas, promovendo a recuperação dos ecossistemas degradados.
+            </p>
+
+            <h4 class="title-font text-xl font-bold text-gray-800 mb-2">3. Impacto e Benefícios Esperados</h4>
+            <p class="mb-4">
+                Com a implementação dessas propostas, espera-se reduzir significativamente o ritmo do desmatamento no sertão, assegurando maior preservação da vegetação nativa e da biodiversidade local. Além disso, a diversificação de alternativas energéticas menos nocivas e o reflorestamento poderão contribuir para a melhoria da qualidade do ar, o equilíbrio climático e a recuperação dos recursos hídricos.
+
+                A médio e longo prazo, os benefícios incluem a sustentabilidade ambiental, a geração de empregos em projetos de reflorestamento, o fortalecimento da fiscalização ambiental e a melhoria da qualidade de vida das comunidades que dependem diretamente dos recursos naturais da região
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mb-6">
+                <li>Redução do desmatamento ilegal no sertão, assegurando maior preservação dos recursos naturais.</li>
+                <li>Benefício 2: Melhoria da qualidade do ar e da saúde da população por meio da adoção de filtros em usinas termelétricas.</li>
+                <li>Benefício 3: Recuperação da biodiversidade e dos ecossistemas por meio do reflorestamento das áreas degradadas.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Adicione esta função ao seu script existente
+    function openInterventionModal() {
+        document.getElementById('intervention-modal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Adicione esta função ao seu script existente
+    function closeInterventionModal() {
+        document.getElementById('intervention-modal').classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+</script>
+
+
     <footer class="bg-gray-900 text-white pt-12 pb-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
@@ -488,6 +570,7 @@
                 </div>
             </div>
         </div>
+        
     </footer>
 
     <script>
