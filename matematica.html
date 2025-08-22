@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JINSA 2025 | Matemática</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap');
+        :root { --primary: #A62B1F; --secondary: #F2A74B; --accent: #8C8C3F; --light: #F2E0C9; --dark: #261F1A; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--light); color: var(--dark); }
+        .title-font { font-family: 'Roboto Slab', serif; }
+        .shadow-custom { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1); }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            border: 2px dashed #a0aec0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-amber-50">
+
+    <nav class="bg-white shadow-custom sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-seedling text-2xl text-green-700 mr-2"></i>
+                        <span class="title-font text-xl font-bold text-gray-900">JINSA 2025</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <section id="matematica" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl font-bold text-gray-900 mb-2">
+                    <i class="fas fa-square-root-alt text-red-600"></i> Conteúdo de Matemática
+                </h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            <div class="max-w-3xl mx-auto text-lg text-gray-700 space-y-6">
+                <h3 class="title-font text-2xl font-semibold text-gray-800">O Clima em Números</h3>
+                    <p>O clima do sertão nordestino é caracterizado por dados extremos: a média anual de temperaturas fica entre <strong>25°C e 30°C</strong>, mas a falta de chuvas cria longos períodos de seca. A matemática nos ajuda a analisar esses padrões climáticos, como a irregularidade das precipitações, que impactam diretamente a vida e a agricultura na região.</p>
+                    <div class="image-container">
+                        <img src="img/clima.png" alt="Imagem ilustrativa do clima" class="w-67 h-auto rounded-lg shadow-md">
+                    </div>
+                <h3 class="title-font text-2xl font-semibold text-gray-800">A Matemática do Abastecimento de Água</h3>
+                    <p>A estatística revela um panorama crítico sobre o acesso à água: <strong>3,5% da população</strong> do Sertão, o equivalente a quase <strong>1,9 milhão de pessoas</strong>, depende exclusivamente de carros-pipa para o abastecimento. Outras soluções, como o armazenamento da água da chuva (<strong>1,8%</strong>) e a captação de rios e açudes (<strong>1,4%</strong>), também são comuns, mas a matemática e a química se unem para resolver o desafio de tornar a água salobra adequada para consumo.</p>
+                <div class="image-container">
+                    <img src="img/aguaimagem.png" alt="Imagem ilustrativa da agua" class="w-65 h-auto rounded-lg shadow-md">
+                </div>
+                
+                <p>A matemática também se manifesta de formas surpreendentes na natureza do Sertão. Investigaremos os padrões fractais, formas geométricas que se repetem em diferentes escalas, presentes em plantas como o mandacaru e na ramificação dos rios secos. A sequência de Fibonacci e a proporção áurea podem ser encontradas na disposição das folhas e flores de diversas espécies.</p>
+                
+                <h3 class="title-font text-2xl font-semibold text-gray-800">Geometria no artesanato</h3>
+                <p>Além da natureza, a matemática está presente na cultura local, através da geometria complexa do artesanato, como nas tramas da renda de bilro, nos desenhos da cestaria e na simetria dos entalhes em madeira, refletindo um conhecimento matemático profundo e tradicional.</p>
+                <div class="image-container">
+                    <img src="img/geometria.png" alt="Imagem ilustrativa da geometria" class="w-67 h-auto rounded-lg shadow-md">
+                </div>
+                
+            </div>
+            <div class="text-center mt-10">
+                <a href="index.html#activities" class="inline-block px-6 py-2 text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 transition duration-300">Voltar para Atividades</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JINSA 2025 | Caminhos do Sertão </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap');
+
+        :root {
+            --primary: #A62B1F;
+            --secondary: #F2A74B;
+            --accent: #8C8C3F;
+            --light: #F2E0C9;
+            --dark: #261F1A;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .title-font {
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .sertao-bg {
+            background-image: url('https://images.unsplash.com/photo-1558470598-a5dda9640f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+        }
+
+        .cordel-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23A62B1F" stroke-width="2"/></svg>');
+            background-size: 20px 20px;
+        }
+
+        .shadow-custom {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Estilo para o novo cabeçalho com fundo desfocado */
+        .hero-com-desfoque {
+            position: relative;
+            /* Essencial para o efeito funcionar */
+            overflow: hidden;
+            /* Garante que o desfoque não vaze para fora */
+        }
+
+        .hero-com-desfoque::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* AQUI VOCÊ COLOCA A SUA IMAGEM */
+            background-image: url('img/SertC3A3o.png');
+            background-size: cover;
+            background-position: center;
+            /* ESTE É O EFEITO DE DESFOQUE */
+            filter: blur(5px);
+            /* Você pode aumentar ou diminuir o valor '5px' */
+            transform: scale(1.1);
+            z-index: -1;
+            /* Joga a camada desfocada para trás do texto */
+        }
+
+        /* Estilos do Modal */
+        .modal-bg {
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <nav class="bg-white shadow-custom sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-seedling text-2xl text-green-700 mr-2"></i>
+                        <span class="title-font text-xl font-bold text-gray-900">JINSA 2025</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#overview" class="text-gray-900 hover:text-amber-700 px-3 py-2 text-sm font-medium">Visão
+                        Geral</a>
+                    <a href="#methodology"
+                        class="text-gray-900 hover:text-amber-700 px-3 py-2 text-sm font-medium">Metodologia</a>
+                    <a href="#activities"
+                        class="text-gray-900 hover:text-amber-700 px-3 py-2 text-sm font-medium">Atividades</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-gray-900"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
+                <a href="#overview"
+                    class="text-gray-900 hover:bg-amber-50 hover:text-amber-700 block px-3 py-2 rounded-md text-base font-medium">Visão
+                    Geral</a>
+                <a href="#methodology"
+                    class="text-gray-900 hover:bg-amber-50 hover:text-amber-700 block px-3 py-2 rounded-md text-base font-medium">Metodologia</a>
+                <a href="#activities"
+                    class="text-gray-900 hover:bg-amber-50 hover:text-amber-700 block px-3 py-2 rounded-md text-base font-medium">Conteúdo</a>
+                <a href="#productions"
+                    class="text-gray-900 hover:bg-amber-50 hover:text-amber-700 block px-3 py-2 rounded-md text-base font-medium">Trabalho
+                    Creativo</a>
+                <a href="#intervention"
+                    class="text-gray-900 hover:bg-amber-50 hover:text-amber-700 block px-3 py-2 rounded-md text-base font-medium">Intervenção</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-com-desfoque relative">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8 relative">
+            <div class="text-center">
+                <h1 class="title-font text-4xl md:text-6xl font-bold text-white mb-4">
+                    Caminhos do Sertão<span class="text-amber-300"><br>Sertão</span>
+                </h1>
+                <p class="mt-6 max-w-lg mx-auto text-xl text-amber-100">
+                    Explorando a ecologia, a cultura e a sustentabilidade do sertão brasileiro através do aprendizado
+                    interdisciplinar.
+                </p>
+                <div class="mt-10">
+                    <a href="#overview"
+                        class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 transition duration-300">
+                        Explore o Projeto
+                        <i class="fas fa-arrow-down ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-amber-50 to-transparent"></div>
+    </header>
+
+    <section id="overview" class="py-16 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl font-bold text-gray-900 mb-2">Visão geral do projeto</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="title-font text-2xl font-bold text-gray-800 mb-4">O Sertão: Ecologia, Cultura e
+                        Sustentabilidade</h3>
+                    <p class="text-gray-700 mb-4">
+                        O Sertão brasileiro é uma região semiárida com biodiversidade única, ricas tradições culturais e
+                        complexos desafios de sustentabilidade. Este projeto interdisciplinar explora a interseção entre
+                        a natureza e algumas disciplinas neste ecossistema fascinante.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Este vasto e diverso território, lar do único bioma exclusivamente brasileiro, a Caatinga, é um palco de contrastes. 
+                        Suas paisagens, marcadas por rios intermitentes e solo seco, se transformam com a chegada das chuvas, revelando uma explosão de vida.
+                         A cultura local, forjada pela lida com o clima desafiador, é rica em tradições que celebram a resistência e a inventividade, manifestando-se em sua música, arte e sabedoria popular.
+                    </p>
+                    <div class="bg-white p-6 rounded-lg shadow-custom">
+                        <h4 class="title-font text-xl font-bold text-gray-800 mb-3">Objetivos do Projeto</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-600 mt-1 mr-2"></i>
+                                <span>Compreender o ecossistema e o significado cultural do Sertão</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-600 mt-1 mr-2"></i>
+                                <span>Analisar padrões matemáticos na natureza e no artesanato tradicional</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-600 mt-1 mr-2"></i>
+                                <span>Desenvolver soluções sustentáveis para os desafios regionais</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-600 mt-1 mr-2"></i>
+                                <span>Criar expressões artísticas inspiradas no Sertão</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-600 mt-1 mr-2"></i>
+                                <span>Propor intervenções sociais de impacto comunitário</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white p-2 shadow-custom rounded-lg overflow-hidden">
+                        <img src="img/cacto.png" alt="Ilustração de um cacto do sertão" class="w-full h-auto rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="methodology" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl font-bold text-gray-900 mb-2">Metodologia</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="title-font text-2xl font-bold text-gray-800 mb-6 text-center"></h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-amber-50 p-6 rounded-lg shadow-custom card-hover">
+                        <div class="text-amber-600 text-3xl mb-4">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h4 class="title-font text-xl font-bold text-gray-800 mb-3">Ecologia e Biodiversidade</h4>
+                        <p class="text-gray-700">
+                            Estudo da flora e fauna únicas do Sertão, estratégias de adaptação e desafios de
+                            conservação.
+                        </p>
+                    </div>
+                    <div class="bg-amber-50 p-6 rounded-lg shadow-custom card-hover">
+                        <div class="text-amber-600 text-3xl mb-4">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h4 class="title-font text-xl font-bold text-gray-800 mb-3">Matemática na Natureza</h4>
+                        <p class="text-gray-700">
+                            Explore padrões fractais, formações geométricas e modelos matemáticos no ecossistema do
+                            Sertão.
+                        </p>
+                    </div>
+                    <div class="bg-amber-50 p-6 rounded-lg shadow-custom card-hover">
+                        <div class="text-amber-600 text-3xl mb-4">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="title-font text-xl font-bold text-gray-800 mb-3">Cultura e Sustentabilidade</h4>
+                        <p class="text-gray-700">
+                            Análise do conhecimento tradicional, artesanato e práticas sustentáveis das comunidades do
+                            Sertão.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-amber-100 rounded-lg p-8 cordel-pattern">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="flex items-start mb-4">
+                            <div class="flex-shrink-0 bg-amber-600 rounded-full p-2 mr-4">
+                                <i class="fas fa-search text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="title-font text-lg font-bold text-gray-800 mb-1">Pesquisa </h4>
+                                <p class="text-gray-700">
+                                    Viagens de campo virtuais e análise de estudos de caso da região do Sertão.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <div class="flex-shrink-0 bg-amber-600 rounded-full p-2 mr-4">
+                                <i class="fas fa-flask text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="title-font text-lg font-bold text-gray-800 mb-1">Análise Científica</h4>
+                                <p class="text-gray-700">
+                                    Coleta de dados e modelagem matemática relacionados aos ecossistemas do Sertão.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-start mb-4">
+                            <div class="flex-shrink-0 bg-amber-600 rounded-full p-2 mr-4">
+                                <i class="fas fa-paint-brush text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="title-font text-lg font-bold text-gray-800 mb-1">Exploração Artística</h4>
+                                <p class="text-gray-700">
+                                    Criação de literatura de cordel, música, artes visuais e outras expressões culturais
+                                    inspiradas nas descobertas.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-amber-600 rounded-full p-2 mr-4">
+                                <i class="fas fa-lightbulb text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="title-font text-lg font-bold text-gray-800 mb-1">Elaboração de Soluções</h4>
+                                <p class="text-gray-700">
+                                    Desenvolvimento de propostas de intervenção social abordando desafios reais nas
+                                    comunidades do Sertão.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="activities" class="py-16 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl font-bold text-gray-900 mb-2">Atividades Interdisciplinares</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-700">
+                    Explorando o Sertão através de diferentes disciplinas acadêmicas
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-custom card-hover">
+                    <div class="text-green-600 text-3xl mb-4"><i class="fas fa-leaf"></i></div>
+                    <h3 class="title-font text-xl font-bold text-gray-800 mb-3">
+                        <a href="biologia.html" class="hover:text-green-700 transition-colors duration-300">Biologia</a>
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-green-500 mt-2 mr-2"></i><span>Adaptação das espécies</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-green-500 mt-2 mr-2"></i><span>Conservação de espécies</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-green-500 mt-2 mr-2"></i><span>Recursos hídricos</span></li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-custom card-hover">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-atom"></i></div>
+                    <h3 class="title-font text-xl font-bold text-gray-800 mb-3">
+                        <a href="quimica.html" class="hover:text-blue-700 transition-colors duration-300">Química</a>
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></i><span>Composição do solo</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></i><span> Água e Alimentos</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></i><span>Química na Produção Artesanal</span></li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-custom card-hover">
+                    <div class="text-purple-600 text-3xl mb-4"><i class="fas fa-bolt"></i></div>
+                    <h3 class="title-font text-xl font-bold text-gray-800 mb-3">
+                        <a href="fisica.html" class="hover:text-purple-700 transition-colors duration-300">Física</a>
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-purple-500 mt-2 mr-2"></i><span>Energia solar</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-purple-500 mt-2 mr-2"></i><span>Transferência de Calor e Evaporação</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-purple-500 mt-2 mr-2"></i><span>Aproveitamento Hídrico</span></li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-custom card-hover">
+                    <div class="text-red-600 text-3xl mb-4"><i class="fas fa-square-root-alt"></i></div>
+                    <h3 class="title-font text-xl font-bold text-gray-800 mb-3">
+                        <a href="matematica.html" class="hover:text-red-700 transition-colors duration-300">Matemática</a>
+                    </h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-red-500 mt-2 mr-2"></i><span>Clima em Números</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-red-500 mt-2 mr-2"></i><span>Matemática do Abastecimento de Água</span></li>
+                        <li class="flex items-start"><i class="fas fa-circle text-xs text-red-500 mt-2 mr-2"></i><span>Geometria no artesanato</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cordel" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl font-bold text-gray-900 mb-2">
+                    <i class="fas fa-feather-alt text-amber-600"></i> O Sertão em Versos: Literatura de Cordel
+                </h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-700">
+                    A arte de contar histórias e expressar a vida sertaneja em rimas e versos.
+                </p>
+            </div>
+            <div class="flex justify-center">
+                <button onclick="openModal()" class="block max-w-sm rounded-lg shadow-lg overflow-hidden transition-transform duration-300 card-hover cursor-pointer">
+                    <img src="img/CORDEL.png" alt="Capa de um cordel sobre o sertão" class="w-full h-auto object-cover rounded-t-lg">
+                    <div class="p-4 bg-amber-100 text-center">
+                        <h4 class="title-font text-xl font-bold text-gray-800">Leia nosso Cordel</h4>
+                        <p class="text-gray-600 text-sm mt-1">Clique para abrir e ver o poema completo</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div id="cordel-modal" class="fixed inset-0 hidden modal-bg flex items-center justify-center z-50 p-4" onclick="closeModal()">
+        <div class="bg-white rounded-lg p-6 shadow-xl max-w-2xl w-full mx-auto relative" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 transition-colors duration-200">
+                <i class="fas fa-times-circle text-2xl"></i>
+            </button>
+            <h3 class="title-font text-2xl font-bold text-gray-800 text-center mb-4">🌵 Força do Sertão</h3>
+            <div class="overflow-y-auto max-h-[70vh] text-center text-gray-700 leading-relaxed p-4 rounded-lg bg-amber-50">
+                <p class="mb-2">No sertão de chão rachado,</p>
+                <p class="mb-2">Brilha a força do viver,</p>
+                <p class="mb-2">O nordeste é encantado,</p>
+                <p class="mb-2">Com seu jeito de florescer.</p>
+                <p class="mb-2">Mesmo em tempos de secura,</p>
+                <p class="mb-2">Guarda em si tanta fartura,</p>
+                <p class="mb-2">Que é preciso proteger.</p>
+                <br>
+                <p class="mb-2">A caatinga é resistência,</p>
+                <p class="mb-2">Com um verde arretado,</p>
+                <p class="mb-2">Cada árvore tem ciência,</p>
+                <p class="mb-2">Do calor bem castigado.</p>
+                <p class="mb-2">Se a gente cuidar da terra,</p>
+                <p class="mb-2">Haverá menos guerra,</p>
+                <p class="mb-2">E o futuro será abençoado.</p>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="title-font text-xl font-bold mb-4">JINSA 2025</h3>
+                    <p class="text-gray-400">
+                        An interdisciplinary exploration of nature and mathematics in the Brazilian Sertão, combining
+                        science, culture, and sustainability.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="title-font text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#overview" class="text-gray-400 hover:text-amber-400 transition">Overview</a></li>
+                        <li><a href="#methodology" class="text-gray-400 hover:text-amber-400 transition">Methodology</a>
+                        </li>
+                        <li><a href="#activities" class="text-gray-400 hover:text-amber-400 transition">Activities</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="title-font text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-amber-400"></i>
+                            <span>projeto@jinsa.edu</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-amber-400"></i>
+                            <span>+55 74 99106-9702</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-amber-400"></i>
+                            <span>Juazeiro, Bahia, Brasil</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 JINSA Interdisciplinary Project. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-amber-400">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Funções para controlar o modal (popup)
+        function openModal() {
+            document.getElementById('cordel-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Evita o scroll do fundo
+        }
+
+        function closeModal() {
+            document.getElementById('cordel-modal').classList.add('hidden');
+            document.body.style.overflow = ''; // Restaura o scroll
+        }
+    </script>
+</body>
+</html>
